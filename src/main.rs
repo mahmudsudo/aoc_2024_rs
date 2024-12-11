@@ -6,6 +6,10 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
+mod day10;
+mod day11;
 fn main() {
-    println!("{}",day8::solve_part2());
+   
+    println!("Puzzle solution: {}", day11::solve_part1());
 }
