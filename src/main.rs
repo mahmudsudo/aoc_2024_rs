@@ -1,4 +1,9 @@
-use day12::Field;
+
+use day13::*;
+use std::io::{self};
+
+use std::time::Instant;
+
 
 mod day1;
 mod day2;
@@ -12,14 +17,20 @@ mod day9;
 mod day10;
 mod day11;
 mod day12;
-fn main() {
-    let input = include_str!("../inputs/day12.txt").trim();
-    let field_map: Vec<Vec<char>> = input
-        .lines()
-        .map(|line| line.chars().collect())
-        .collect();
+mod day13;
+fn main() -> io::Result<()> {
 
-    let field = Field::new(field_map);
-    println!("The total price of the field is {}", field.price());
-    println!("With the bulk discount, the price is {}", field.bulk_price());
+    let mut input = read_input("day13.txt")?;
+    
+    // Part 1
+    let start = Instant::now();
+    let result = solve_part1(&input);
+    elapsed_time("Part 1", result, start);
+
+    // Part 2
+    let start = Instant::now();
+    let result = solve_part2(&mut input);
+    elapsed_time("Part 2", result, start);
+
+    Ok(())
 }
